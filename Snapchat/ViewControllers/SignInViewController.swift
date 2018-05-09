@@ -16,11 +16,10 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +42,10 @@ class SignInViewController: UIViewController {
                         print("New user ceation error")
                     }else{
                         print("New user ceated successfully")
+                        
+                        // push the user into database
+                        Database.database().reference().child("users").child(user!.uid).child("email").setValue(user!.email!)
+                        
                         self.performSegue(withIdentifier: "signinsegue", sender: nil)
                     }
                 })

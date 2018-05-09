@@ -50,7 +50,9 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+       let nextVc = segue.destination as! SelectUserViewController
+        nextVc.imageUrl = sender as! String
+        nextVc.descript = descriptionText.text!
     }
     
 
@@ -67,7 +69,8 @@ class PictureViewController: UIViewController, UIImagePickerControllerDelegate, 
             }else{
                 print("Success")
                 self.nextButton.isEnabled = true
-                self.performSegue(withIdentifier: "selectUserSegue", sender: nil)
+                let imageUrl = metadata?.downloadURL()!.absoluteString
+                self.performSegue(withIdentifier: "selectUserSegue", sender: imageUrl)
             }
         }
     }

@@ -71,6 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="60" y="33"/>
         </scene>
         <!--Snaps View Controller-->
         <scene sceneID="HBI-a5-YLf">
@@ -79,7 +80,19 @@
                     <view key="view" contentMode="scaleToFill" id="SoX-w0-noT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LKT-Dq-qax">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6si-0f-024" firstAttribute="trailing" secondItem="LKT-Dq-qax" secondAttribute="trailing" id="HRy-SE-FaK"/>
+                            <constraint firstItem="6si-0f-024" firstAttribute="bottom" secondItem="LKT-Dq-qax" secondAttribute="bottom" id="Pte-Cf-lW5"/>
+                            <constraint firstItem="LKT-Dq-qax" firstAttribute="top" secondItem="6si-0f-024" secondAttribute="top" id="ZFf-HW-0eP"/>
+                            <constraint firstItem="LKT-Dq-qax" firstAttribute="leading" secondItem="6si-0f-024" secondAttribute="leading" id="yXe-Ot-k9N"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6si-0f-024"/>
                     </view>
                     <navigationItem key="navigationItem" id="wHh-pb-Vur">
@@ -95,10 +108,55 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="LKT-Dq-qax" id="IA8-M7-f8y"/>
+                        <segue destination="Uwq-iR-j8P" kind="show" identifier="viewSnapSegue" id="fHI-y6-sla"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzn-4U-Mlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1521" y="34"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="YYe-ef-qKk">
+            <objects>
+                <viewController id="Uwq-iR-j8P" customClass="ViewSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MOZ-9q-aGM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-N3-LVT">
+                                <rect key="frame" x="67.5" y="96" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2sC-ck-uoi"/>
+                                    <constraint firstAttribute="height" constant="128" id="h9Q-KP-AqH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55H-sk-k8g">
+                                <rect key="frame" x="166.5" y="248" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gAr-N3-LVT" firstAttribute="centerX" secondItem="MOZ-9q-aGM" secondAttribute="centerX" id="R3z-Nx-STc"/>
+                            <constraint firstItem="gAr-N3-LVT" firstAttribute="top" secondItem="anU-ZB-aNj" secondAttribute="top" constant="32" id="RfT-sS-uk8"/>
+                            <constraint firstItem="55H-sk-k8g" firstAttribute="top" secondItem="gAr-N3-LVT" secondAttribute="bottom" constant="24" id="sC8-iv-VzF"/>
+                            <constraint firstItem="55H-sk-k8g" firstAttribute="centerX" secondItem="MOZ-9q-aGM" secondAttribute="centerX" id="zdt-Zl-HoC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="anU-ZB-aNj"/>
+                    </view>
+                    <connections>
+                        <outlet property="description" destination="55H-sk-k8g" id="KiZ-2B-sOh"/>
+                        <outlet property="imageView" destination="gAr-N3-LVT" id="u2q-CH-3yJ"/>
+                        <outlet property="snapDescription" destination="55H-sk-k8g" id="eSP-fV-g4A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXt-65-Xyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="744"/>
         </scene>
         <!--Picture View Controller-->
         <scene sceneID="ENT-0r-Oay">
